@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        title= title
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        main.form-wrapper
+            h1 Add a Book
+            form(action="/update-cobj", method="POST")
+                label(for="name") Name
+                input#name(type="text", name="name", required=true)
+
+                label(for="author") Author
+                input#author(type="text", name="author", required=true)
+
+                label(for="genre") Genre
+                input#genre(type="text", name="genre", required=true)
+
+                label(for="price") Price
+                input#price(type="number", name="price", required=true, step="0.01")
+
+                input(type="submit", value="Add to table")
+
+            p
+                a(href="/") Return to the homepage
