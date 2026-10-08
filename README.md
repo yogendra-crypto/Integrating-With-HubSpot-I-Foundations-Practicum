@@ -10,6 +10,7 @@ Properties:
 - Name
 - Author
 - Genre
+- Price
 
 HubSpot custom object list URL:
 
