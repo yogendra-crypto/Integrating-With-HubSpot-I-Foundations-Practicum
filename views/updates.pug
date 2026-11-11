@@ -1,13 +1,30 @@
 doctype html
-html
+html(lang="en")
   head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
     title= title
-    link(rel='stylesheet', href='/css/style.css')
+    link(rel="stylesheet", href="/css/style.css")
   body
-    h1 Update Custom Object Form
-    form(action='/update-cobj', method='POST')
-      each p in props
-        label(for=p)= p
-        input(type='text', id=p, name=p, required)
-      input(type='submit', value='Save')
-    a(href='/') Return to the homepage
+    main.page.page-narrow
+      a.back-link(href="/") ← Back to records
+      header.page-header.form-header
+        p.eyebrow HubSpot practicum
+        h1= title
+        p.page-description Enter the details below to create a new record.
+
+      if error
+        p.alert(role="alert")= error
+
+      form.card(action="/update-cobj", method="POST")
+        each property in properties
+          .form-field
+            label(for=property)= property.charAt(0).toUpperCase() + property.slice(1)
+            input(
+              type="text",
+              id=property,
+              name=property,
+              required,
+              value=(typeof values !== 'undefined' && values[property]) ? values[property] : ''
+            )
+        button.button(type="submit") Save record

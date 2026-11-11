@@ -1,18 +1,38 @@
 doctype html
-html
+html(lang="en")
   head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
     title= title
-    link(rel='stylesheet', href='/css/style.css')
+    link(rel="stylesheet", href="/css/style.css")
   body
-    h1= title
-    a(href='/update-cobj') Add to this table
-    table
-      tr
-        th Name
-        th Species
-        th Age
-      each r in records
-        tr
-          td= r.name
-          td= r.species
-          td= r.age
+    main.page
+      header.page-header
+        div
+          p.eyebrow HubSpot practicum
+          h1= title
+          p.page-description Records saved in your HubSpot custom object.
+        a.button(href="/update-cobj") Add a record
+
+      if error
+        p.alert(role="alert")= error
+
+      if records.length
+        .table-wrapper
+          table
+            thead
+              tr
+                th(scope="col") Name
+                th(scope="col") Species
+                th(scope="col") Age
+            tbody
+              each record in records
+                tr
+                  td= record.properties.name || '—'
+                  td= record.properties.species || '—'
+                  td= record.properties.age || '—'
+      else
+        section.empty-state
+          h2 No records found
+          p There are no custom object records to display yet.
+          a.text-link(href="/update-cobj") Create the first record

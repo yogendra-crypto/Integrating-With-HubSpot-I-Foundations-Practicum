@@ -1,0 +1,14 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    main.page.page-narrow
+      section.card.error-card
+        p.eyebrow HubSpot practicum
+        h1= title
+        p.alert(role="alert")= message
+        a.button(href="/") Return to records
