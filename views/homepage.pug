@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    h1= title
+    a(href='/update-cobj') Add to this table
+    table
+      tr
+        th Name
+        th Species
+        th Age
+      each r in records
+        tr
+          td= r.name
+          td= r.species
+          td= r.age
