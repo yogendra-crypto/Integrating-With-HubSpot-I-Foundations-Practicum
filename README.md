@@ -27,8 +27,6 @@ A small Express application that reads custom object records from HubSpot and le
    ```dotenv
    PRIVATE_APP_ACCESS=your_private_app_access_token
    CUSTOM_OBJECT_TYPE=your_custom_object_type
-   HUBSPOT_API=https://api.hubapi.com
-   PORT=3000
    ```
 
    Keep `.env` private. It is excluded from Git and should not be shared with the project.
